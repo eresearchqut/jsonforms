@@ -1,0 +1,93 @@
+{
+  "name": "@jsonforms/rsuite-renderers",
+  "version": "2.5.2-alpha.0",
+  "description": "Rsuite Renderer Set for JSON Forms",
+  "repository": "https://github.com/eclipsesource/jsonforms",
+  "bugs": "https://github.com/eclipsesource/jsonforms/issues",
+  "homepage": "http://jsonforms.io/",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "bundle": "webpack --config ./webpack/webpack.build.js --env=production --display-error-details",
+    "build": "tsc",
+    "dev": "webpack --config ./webpack/webpack.dev.js && webpack-dev-server --config webpack/webpack.dev.js --env=dev --inline",
+    "clean": "rimraf lib coverage dist .nyc_output 2> /dev/null",
+    "lint": "tslint --project tsconfig.json --exclude src/models/jsonSchema.ts",
+    "report": "nyc report --reporter=html",
+    "test": "jest --no-cache",
+    "test-cov": "jest --no-cache --coverage",
+    "doc": "typedoc --name 'JSON Forms Vanilla Renderers' --mode file --excludeExternals --theme ../../typedoc-jsonforms --out docs src"
+  },
+  "keywords": [
+    "vanilla",
+    "form",
+    "forms",
+    "json",
+    "jsonforms",
+    "frontend",
+    "generator",
+    "input",
+    "renderengine",
+    "jsonschema",
+    "schema",
+    "uischema",
+    "layout",
+    "customization"
+  ],
+  "peerDependencies": {
+    "@jsonforms/core": "^2.5.2-alpha.0",
+    "@jsonforms/react": "^2.5.2-alpha.0"
+  },
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "0.1.3",
+    "@jsonforms/core": "^2.5.2-alpha.0",
+    "@jsonforms/react": "^2.5.2-alpha.0",
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "copy-webpack-plugin": "^5.0.5",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "jest": "^24.9.0",
+    "jsdom": "^15.2.1",
+    "jsdom-global": "^3.0.2",
+    "nyc": "^14.1.1",
+    "react-dom": "^16.12.0",
+    "react-redux": "^7.1.3",
+    "rimraf": "^3.0.2",
+    "rsuite": "^4.10.2",
+    "source-map-loader": "^0.2.4",
+    "source-map-support": "0.5.16",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.5.3",
+    "tslint": "^5.20.1",
+    "tslint-loader": "^3.5.4",
+    "typedoc": "^0.19.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testMatch": [
+      "**/test/**/*.test.tsx"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ]
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ]
+  }
+}
